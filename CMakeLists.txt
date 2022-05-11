@@ -15,8 +15,10 @@ if (SDL2_FOUND)
   message(STATUS "SDL2_LIBRARIES = ${SDL2_LIBRARIES}")
 endif()
 
-#searching for SDL_image
+#searching for others libraries
 find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf)
+find_package(SDL2_mixer)
 
 # Put libraries in the lib subdirectory
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

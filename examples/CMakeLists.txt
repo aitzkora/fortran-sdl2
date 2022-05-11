@@ -7,12 +7,20 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/scaling/wall.bmp DESTINATION ${CMAKE_BINAR
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/voxel/dem.bmp DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/voxel/top.bmp DESTINATION ${CMAKE_BINARY_DIR})
 
-# not yet implemented examples : we need sdl_ttf and sdl_mixer and libgl
+# not yet implemented examples : we need libgl
 #gl
 #gl3d
 #glsphere
-#opera
-#text
+
+if (SDL2_TTF_FOUND)
+   add_executable(text ${CMAKE_CURRENT_SOURCE_DIR}/text/text.f90)
+   target_link_libraries(text sdl2_ttf sdl2 ${SDL2_TTF_LIBARIES} ${SDL2_LIBRARIES})
+ endif()
+
+if (SDL2_TTF_FOUND AND SDL2_MIXER_FOUND)
+   add_executable(opera ${CMAKE_CURRENT_SOURCE_DIR}/opera/opera.f90)
+   target_link_libraries(opera sdl2_ttf sdl2 ${SDL2_TTF_LIBARIES} ${SDL2_MIXER_LIBRARIES} ${SDL2_LIBRARIES})
+endif()
 
 # examples with plain sdl2 library
 set(examples_sdl 

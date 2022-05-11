@@ -32,10 +32,10 @@ The [Fortran Package Manager](https://github.com/fortran-lang/fpm) (fpm) will
 produce `libfortran-sdl2.a` only (examples have to be compiled manually).
 
 ### Make
-Run `make sdl2` to compile the static library `libsdl2.a`:
+Run `cmake` and `make` to compile the static library `libsdl2.a`:
 
 ```
-$ git clone --depth 1 https://github.com/interkosmos/fortran-sdl2
+$ git clone --depth 1 https://github.com/aitzkora/fortran-sdl2
 $ cd fortran-sdl2/
 $ make sdl2
 ```
@@ -78,6 +78,11 @@ $ xmake build <name>
 ```
 
 The default output directory is `build/`.
+
+### CMake
+```
+$ cmake -B build && make -C build 
+```
 
 ## Example
 The following example shows how to fill a rectangle, using the hardware renderer.
